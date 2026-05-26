@@ -115,72 +115,8 @@ const whatsappUrl = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}
 </template>
 
 <style scoped>
-
-/* HERO */
-.legal-hero {
-  background: linear-gradient(135deg, #2faa0a, #39ff14);
-  color: white;
-  padding: 60px 20px;
-  border-radius: 0 0 30px 30px;
-}
-
-/* CONTENIDO */
-.legal-content {
-  margin-top: 40px;
-  max-width: 900px;
-}
-
-/* CARD */
-.legal-card {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  margin-bottom: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  line-height: 1.6;
-}
-
-/* LISTAS */
-.legal-list {
-  padding-left: 20px;
-}
-
+/* Consolidado en src/assets/css/main.css: legal-hero, legal-content, legal-card, legal-list, links, faq, important y responsive legal. */
 .legal-list li {
   margin-bottom: 10px;
 }
-
-/* LINKS */
-a {
-  color: #2563eb;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #39ff14;
-}
-
-/* FAQ */
-.faq {
-  margin-bottom: 15px;
-}
-
-.faq h4 {
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-/* IMPORTANTE */
-.important {
-  border-left: 5px solid #2faa0a;
-  background: #f0fdf4;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .legal-content {
-    padding: 0 15px;
-  }
-}
-
 </style>

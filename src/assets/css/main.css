@@ -27,6 +27,34 @@
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
+/* ===== VARIABLES PRINCIPALES SITI MAS ===== */
+/* Movido/optimizado: tokens creados para centralizar colores, sombras, radios y espaciados repetidos en componentes. */
+:root {
+  --sitimas-primary: #2faa0a;
+  --sitimas-primary-bright: #39ff14;
+  --sitimas-primary-alt: #379c0c;
+  --sitimas-whatsapp: #25D366;
+  --sitimas-dark: #0b0f1a;
+  --sitimas-ink: #111827;
+  --sitimas-muted: #6b7280;
+  --sitimas-blue-link: #2563eb;
+  --sitimas-soft-page: #f8fafc;
+  --sitimas-soft-card: #f9fafb;
+  --sitimas-soft-green: #f0fdf4;
+  --sitimas-border: #e5e7eb;
+  --sitimas-radius-sm: 12px;
+  --sitimas-radius-md: 15px;
+  --sitimas-radius-lg: 20px;
+  --sitimas-radius-pill: 30px;
+  --sitimas-shadow-card: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --sitimas-shadow-card-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --sitimas-shadow-green: 0 10px 25px rgba(47, 170, 10, 0.4);
+  --sitimas-gradient-brand: linear-gradient(135deg, var(--sitimas-primary), var(--sitimas-primary-bright));
+  --sitimas-gradient-nav: linear-gradient(90deg, var(--sitimas-primary), var(--sitimas-primary-bright));
+  --sitimas-transition-fast: 0.3s;
+  --sitimas-transition-normal: all 0.3s ease;
+}
+
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #d3d3d3;  /* The default color of the main navmenu links */
@@ -193,7 +221,8 @@ h6 {
 /* Desktop Navigation */
 
 .header {
-  background: linear-gradient(90deg, #2faa0a, #39ff14);
+  /* Optimizado: color repetido del navbar ahora usa el gradiente global de marca. */
+  background: var(--sitimas-gradient-nav);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   padding: 10px 0;
   z-index: 9999;
@@ -243,14 +272,14 @@ h6 {
 
 .btn-onepay {
   background: white;
-  color: #2faa0a !important;
+  color: var(--sitimas-primary) !important;
   padding: 6px 14px;
   border-radius: 20px;
   font-weight: 600;
 }
 
 .btn-onepay:hover {
-  background: #0b0f1a;
+  background: var(--sitimas-dark);
   color: white !important;
 }
 
@@ -269,7 +298,7 @@ h6 {
 
 .header-social-links a:hover {
   background: white;
-  color: #2faa0a;
+  color: var(--sitimas-primary);
   transform: scale(1.1);
 }
 
@@ -284,7 +313,8 @@ h6 {
   }
 
   .logo-img {
-    height: 52px;
+    /* Ajustado: conserva el alto visual que antes venia del scoped de NavbarPage.vue. */
+    height: 72px;
   }
 
   .navmenu {
@@ -310,13 +340,13 @@ h6 {
 
   .mobile-nav-toggle:hover {
     background: white;
-    color: #2faa0a;
+    color: var(--sitimas-primary);
   }
 
   .navmenu > ul {
     flex-direction: column;
     gap: 0;
-    background: #0b0f1a;
+    background: var(--sitimas-dark);
     position: fixed;
     top: 70px;
     left: 16px;
@@ -334,7 +364,8 @@ h6 {
 
   .navmenu > ul.mobile-active {
     display: flex;
-    animation: fadeIn 0.3s ease;
+    /* Optimizado: keyframe unico para no chocar con otro fadeIn global de FAQ. */
+    animation: sitimasNavFadeIn 0.3s ease;
   }
 
   .navmenu > ul li {
@@ -362,7 +393,7 @@ h6 {
   .navmenu > ul .btn-onepay {
     justify-content: center;
     margin-top: 8px;
-    color: #2faa0a !important;
+    color: var(--sitimas-primary) !important;
   }
 }
 
@@ -382,7 +413,7 @@ h6 {
   }
 }
 
-@keyframes fadeIn {
+@keyframes sitimasNavFadeIn {
   from {
     opacity: 0;
     transform: translateY(-10px);
@@ -392,6 +423,15 @@ h6 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Ajustado: estados de header que antes vivian en NavbarPage.vue y dependen del JS global del template. */
+.header.scrolled {
+  background: #ffffff;
+}
+
+.header.scrolled .navmenu a {
+  color: #111;
 }
 
 /*--------------------------------------------------------------
@@ -781,11 +821,244 @@ textarea::placeholder {
 }
 
 /*--------------------------------------------------------------
+# App Shell, Transiciones y WhatsApp
+--------------------------------------------------------------*/
+/* Movido desde App.vue: estilos globales del layout principal y transicion de rutas. */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.30s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.main {
+  padding-top: 85px;
+}
+
+/* Movido desde App.vue: boton flotante global de WhatsApp, usado fuera de vistas individuales. */
+.whatsapp-float {
+  position: fixed;
+  bottom: 80px;
+  right: 12px;
+  width: 60px;
+  height: 60px;
+  background: var(--sitimas-whatsapp);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  z-index: 9999;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+  animation: sitimasWhatsappPulse 2s infinite;
+  transition: var(--sitimas-transition-normal);
+}
+
+/* Optimizado: hover conservado con la misma escala y sombra visual anterior. */
+.whatsapp-float:hover {
+  transform: scale(1.15);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.9);
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: 10px;
+  }
+}
+
+/* Movido desde App.vue: animacion exclusiva del boton de WhatsApp. */
+@keyframes sitimasWhatsappPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Paginas Legales Reutilizables
+--------------------------------------------------------------*/
+/* Movido desde HabeasData, Actualizacion, CalidadPage, PqrPage, Enteregulador, ProtecionUsuario, RegimenProteccion, RecolecionEquipos e InternetSano. */
+/* Optimizado: se eliminaron duplicados de hero, contenedor, tarjetas, listas, botones y media query movil manteniendo los mismos valores visuales base. */
+.legal-hero {
+  background: var(--sitimas-gradient-brand);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 0 0 var(--sitimas-radius-pill) var(--sitimas-radius-pill);
+}
+
+/* Conservado: InternetSano no usaba radio inferior; esta excepcion evita cambiar su silueta. */
+.legal-page .legal-hero:first-child:last-child,
+.legal-page .legal-hero:not(:has(p)) {
+  border-radius: 0;
+}
+
+.legal-content {
+  margin-top: 40px;
+  max-width: 900px;
+}
+
+.legal-card {
+  background: white;
+  padding: 25px;
+  border-radius: var(--sitimas-radius-md);
+  margin-bottom: 25px;
+  box-shadow: var(--sitimas-shadow-card);
+  line-height: 1.6;
+}
+
+.legal-card a {
+  color: var(--sitimas-blue-link);
+  text-decoration: none;
+}
+
+.legal-card a:hover {
+  color: var(--sitimas-primary-bright);
+}
+
+.highlight {
+  color: var(--sitimas-primary);
+}
+
+.legal-list {
+  padding-left: 20px;
+}
+
+.legal-list li {
+  margin-bottom: 12px;
+  color: #374151;
+}
+
+.legal-action {
+  margin-top: 30px;
+}
+
+.btn-law,
+.btn-entity {
+  background: var(--sitimas-gradient-brand);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--sitimas-transition-fast);
+}
+
+.btn-law {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: var(--sitimas-radius-pill);
+}
+
+.btn-law:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sitimas-shadow-green);
+}
+
+.buttons-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.btn-entity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: var(--sitimas-radius-md);
+}
+
+.btn-entity:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sitimas-shadow-green);
+}
+
+.channels {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  border: 2px solid var(--sitimas-border);
+}
+
+.channel {
+  padding: 15px;
+  border-radius: var(--sitimas-radius-sm);
+  background: var(--sitimas-soft-card);
+  border: 1px solid var(--sitimas-border);
+}
+
+.channel a {
+  display: block;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.legal-list a {
+  font-weight: 600;
+}
+
+.faq {
+  margin-bottom: 15px;
+}
+
+.faq h4 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.program {
+  margin-bottom: 25px;
+}
+
+.important {
+  border-left: 5px solid var(--sitimas-primary);
+  background: var(--sitimas-soft-green);
+}
+
+/* Conservado: footer local de InternetSano, diferente al footer principal de la aplicacion. */
+.legal-page > .footer {
+  background: #020617;
+  color: white;
+  padding: 40px 20px;
+}
+
+.legal-page > .footer .footer-links a {
+  margin: 0 10px;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.legal-page > .footer .footer-links a:hover {
+  color: var(--sitimas-primary-bright);
+}
+
+@media (max-width: 768px) {
+  .legal-content {
+    padding: 0 15px;
+  }
+
+  .channels,
+  .buttons-card {
+    grid-template-columns: 1fr;
   }
 }
 

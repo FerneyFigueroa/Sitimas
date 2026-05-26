@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Toast from "vue-toastification"
 import "vue-toastification/dist/index.css"
 // Iconos
-import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
+import './assets/bootstrap-icons/bootstrap-icons.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'

@@ -94,12 +94,9 @@
 </template>
 
 <style scoped>
-/* ===== HERO ===== */
-.legal-hero {
-    background: linear-gradient(135deg, #2faa0a, #39ff14);
-    color: white;
-    padding: 60px 20px;
-    border-radius: 0 0 30px 30px;
+/* Consolidado en src/assets/css/main.css: legal-hero, legal-content, legal-card, legal-list y responsive legal. */
+.legal-content {
+    margin-top: 50px;
 }
 
 .legal-hero h1 {
@@ -112,47 +109,18 @@
     margin: auto;
 }
 
-/* ===== CONTENIDO ===== */
-.legal-content {
-    margin-top: 50px;
-    max-width: 900px;
-}
-
-/* ===== TARJETAS ===== */
-.legal-card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    line-height: 1.6;
-}
-
 .legal-card h3 {
     color: #2faa0a;
     margin-bottom: 15px;
 }
 
-/* ===== LISTA ===== */
 .legal-list {
     padding-left: 18px;
 }
 
-.legal-list li {
-    margin-bottom: 12px;
-    color: #374151;
-}
-
-/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-
     .legal-hero h1 {
         font-size: 24px;
     }
-
-    .legal-content {
-        padding: 0 15px;
-    }
-
 }
 </style>

@@ -20,7 +20,7 @@
             Para conectarte a la señal solo debes contar con los equipos de recepción necesarios.
           </p>
 
-          <a href="#" class="btn-tdt">
+          <a href="https://www.tdtparatodos.tv/" target="_blank" rel="noopener noreferrer" class="btn-tdt">
             Más información →
           </a>
 
@@ -41,7 +41,6 @@
 </template>
 
 <style scoped>
-
 /* SECCIÓN */
 .tdt-section {
   background: #f8fafc;
@@ -89,7 +88,7 @@
   background: white;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -122,5 +121,4 @@
   }
 
 }
-
 </style>

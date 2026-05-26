@@ -60,8 +60,9 @@
         <p>Para conocer más información puede consultar la:</p>
 
         <a
-          href=""
-          
+          href="https://jurinfo.jep.gov.co/normograma/compilacion/docs/circular_superindustria_0008_2011.htm"
+          target="_blank"
+          rel="noopener noreferrer"
           class="btn-law"
         >
           📄 Circular Externa No. 008 de 2011
@@ -74,66 +75,8 @@
 </template>
 
 <style scoped>
-
-/* HERO */
-.legal-hero {
-  background: linear-gradient(135deg, #2faa0a, #39ff14);
-  color: white;
-  padding: 60px 20px;
-  border-radius: 0 0 30px 30px;
-}
-
-/* CONTENIDO */
-.legal-content {
-  margin-top: 40px;
-  max-width: 900px;
-}
-
-/* CARD */
-.legal-card {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  margin-bottom: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  line-height: 1.6;
-}
-
-/* LISTAS */
-.legal-list {
-  padding-left: 20px;
-}
-
+/* Consolidado en src/assets/css/main.css: legal-hero, legal-content, legal-card, legal-list, legal-action, btn-law y responsive legal. */
 .legal-list li {
   margin-bottom: 10px;
 }
-
-/* BOTÓN */
-.legal-action {
-  margin-top: 30px;
-}
-
-.btn-law {
-  display: inline-block;
-  background: linear-gradient(135deg, #2faa0a, #39ff14);
-  color: white;
-  padding: 14px 30px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn-law:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(47,170,10,0.4);
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .legal-content {
-    padding: 0 15px;
-  }
-}
-
 </style>

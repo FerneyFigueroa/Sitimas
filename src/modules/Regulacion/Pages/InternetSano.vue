@@ -147,73 +147,14 @@
 </template>
 
 <style scoped>
-
-/* HERO */
-.legal-hero {
-  background: linear-gradient(135deg, #2faa0a, #39ff14);
-  color: white;
-  padding: 60px 20px;
-}
-
-.logo {
-  width: 120px;
-  margin-bottom: 15px;
-}
-
-/* CONTENIDO */
+/* Consolidado en src/assets/css/main.css: legal-hero, legal-content, legal-card, links legales, program, footer local y responsive legal. */
 .legal-content {
   margin-top: 50px;
-  max-width: 900px;
 }
 
-/* CARD */
-.legal-card {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  margin-bottom: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-/* LINKS */
 .legal-card a {
   display: block;
-  color: #2563eb;
   margin-bottom: 10px;
   word-break: break-all;
 }
-
-.legal-card a:hover {
-  color: #39ff14;
-}
-
-/* PROGRAMAS */
-.program {
-  margin-bottom: 25px;
-}
-
-/* FOOTER */
-.footer {
-  background: #020617;
-  color: white;
-  padding: 40px 20px;
-}
-
-.footer-links a {
-  margin: 0 10px;
-  color: #9ca3af;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  color: #39ff14;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .legal-content {
-    padding: 0 15px;
-  }
-}
-
 </style>
